@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
 group='com.github.kami62'
 
 android {
@@ -17,6 +18,27 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    bintray {
+        user = 'kamiah'
+        key = 'e0abf3ffc8a569227357e5cf1682a881b0ea7ad5'
+        pkg {
+            repo = 'maven'
+            name = 'com.demo.kamiah.demogithublib'
+
+            version {
+                name = '1.0.1'
+                desc = 'My test upload'
+                released  = new Date()
+                vcsTag = '1.0.1'
+            }
+
+            licenses = ['Apache-2.0']
+            vcsUrl = 'https://github.com/kami62/androidtesting.git'
+            websiteUrl = 'https://github.com/kami62/androidtesting.git'
+        }
+        configurations = ['archives']
     }
 }
 
